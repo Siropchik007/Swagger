@@ -22,6 +22,10 @@ public class Steps extends Pet {
                     .setContentType(ContentType.JSON)
                     .build();
 
+
+    /*
+        Метод для создания животного
+    */
    @Test
     public Pet createPet(){
        Faker faker = new Faker();
@@ -48,6 +52,9 @@ public class Steps extends Pet {
 
     }
 
+    /*
+        Метод для получения животного
+    */
     @Test
     public Pet getPets(){
         Pet db = new Pet();
