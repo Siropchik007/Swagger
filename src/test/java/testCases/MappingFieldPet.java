@@ -16,14 +16,14 @@ public class MappingFieldPet extends TestBase {
         @Test
         public void mappingFieldPet() {
 
-            step("Создать животного");
+            step("Создание животного");
             Pet createPet = helper.createPet();
 
             step("Получить информация по животному по id");
             Pet getPet = helper.getPet(createPet.getId());
 
             assertAll(
-                    () -> assertEquals( getPet.getName(), (createPet.getName()))
+                    () -> assertEquals( getPet.getName(), (createPet.getName()), "Проверка name")
             );
 
         }

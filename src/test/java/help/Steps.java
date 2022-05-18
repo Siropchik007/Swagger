@@ -61,7 +61,7 @@ public class Steps extends Pet {
         Pet findPet = given().pathParam("id", id)
                 .baseUri("https://petstore.swagger.io/v2")
                 .basePath("/pet")
-                .contentType(ContentType.JSON).log().all()
+                .contentType(ContentType.JSON)
                 .when().get("/{id}")
                 .then().statusCode(200).and().log().all()
                 .extract().response().prettyPeek().as(Pet.class);
