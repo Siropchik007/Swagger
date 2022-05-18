@@ -30,16 +30,16 @@ public class Steps extends Pet {
     public Pet createPet(){
        Faker faker = new Faker();
         Pet body = new Pet()
-                /*.id(faker.hashCode())
+                .id(faker.hashCode())
                 .name(faker.name().fullName())
-                .category(new Category().Id(faker.hashCode()).name(faker.name().fullName()))
+                .category(new Category()
+                        .Id(faker.hashCode())
+                        .name(faker.name().fullName()))
                 .photoUrls(List.of("https://i.ytimg.com/vi/980jxJagep0/maxresdefault_live.jpg"))
-                .tags(List.of(new TagsItem().id(faker.hashCode()).name(faker.name().fullName())))*/
-                .id(123)
-                .name("Bob")
-                .category(new Category().Id(12).name("Cat"))
-                .photoUrls(List.of("https://i.ytimg.com/vi/980jxJagep0/maxresdefault_live.jpg"))
-                .tags(List.of(new TagsItem().id(13).name("funny")))
+                .tags(List.of(new TagsItem()
+                        .id(faker.hashCode())
+                        .name(faker.name().fullName())))
+
                 .status("available");
         given()
                 .baseUri("https://petstore.swagger.io/v2")
