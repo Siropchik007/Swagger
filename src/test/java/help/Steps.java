@@ -26,7 +26,7 @@ public class Steps extends Pet {
     /*
         Метод для создания животного
     */
-   @Test
+
     public Pet createPet(){
        Faker faker = new Faker();
         Pet body = new Pet()
@@ -45,7 +45,7 @@ public class Steps extends Pet {
                 .baseUri("https://petstore.swagger.io/v2")
                 .basePath("/pet")
                 .contentType(ContentType.JSON)
-                .body(body).log().all()
+                .body(body)
                 .when().post()
                 .then().statusCode(200).log().all();
         return  body;
@@ -55,18 +55,19 @@ public class Steps extends Pet {
     /*
         Метод для получения животного
     */
-    @Test
-    public Pet getPets(){
-        Pet db = new Pet();
-        given()
+
+    public Pet getPet(int id) {
+
+        Pet findPet = given().pathParam("id", id)
                 .baseUri("https://petstore.swagger.io/v2")
-                .basePath("/pet/123")
-                .contentType(ContentType.JSON)
-                .body(db).log().all()
-                .when().get()
-                .then().statusCode(200).log().all();
-        return  db;
+                .basePath("/pet")
+                .contentType(ContentType.JSON).log().all()
+                .when().get("/{id}")
+                .then().statusCode(200).and().log().all()
+                .extract().response().prettyPeek().as(Pet.class);
+        return findPet;
     }
+
 }
 
 
