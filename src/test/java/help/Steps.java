@@ -6,7 +6,6 @@ import io.restassured.specification.RequestSpecification;
 import model.Category;
 import model.Pet;
 import model.TagsItem;
-import org.junit.jupiter.api.Test;
 import com.github.javafaker.*;
 
 import java.util.List;
@@ -39,8 +38,8 @@ public class Steps extends Pet {
                 .tags(List.of(new TagsItem()
                         .id(faker.hashCode())
                         .name(faker.name().fullName())))
-
                 .status("available");
+
         given()
                 .baseUri("https://petstore.swagger.io/v2")
                 .basePath("/pet")
@@ -51,6 +50,7 @@ public class Steps extends Pet {
         return  body;
 
     }
+
 
     /*
         Метод для получения животного
@@ -66,6 +66,27 @@ public class Steps extends Pet {
                 .then().statusCode(200).and().log().all()
                 .extract().response().prettyPeek().as(Pet.class);
         return findPet;
+    }
+
+    /*
+        Создание питомца без заполнения обязательных полей
+     */
+
+    public Pet createPetWithoutReqField() {
+        Faker faker = new Faker();
+        Pet body = new Pet()
+                .id(faker.hashCode())
+                .category(new Category()
+                        .Id(faker.hashCode())
+                        .name(faker.name().fullName()));
+        given()
+                .baseUri("https://petstore.swagger.io/v2")
+                .basePath("/pet")
+                .contentType(ContentType.JSON)
+                .body(body)
+                .when().post()
+                .then().statusCode(200).log().all();
+        return body;
     }
 
 }
