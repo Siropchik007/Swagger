@@ -26,7 +26,7 @@ public class MappingFieldPet extends TestBase {
                     () -> assertThat("Проверка id", getPet.getId(), equalTo(createPet.getId())),
                     () -> assertThat("Проверка id категории", getPet.getCategory().getId(), equalTo(createPet.getCategory().getId())),
                     () -> assertThat("Проверка url фото", getPet.getPhotoUrls(), equalTo(createPet.getPhotoUrls())),
-                    () -> assertThat("Проверка id тэга", getPet.getTags().get(0).getId(), equalTo(createPet.getTags().get(0).getName())),
+                    () -> assertThat("Проверка id тэга", getPet.getTags().get(0).getId(), equalTo(createPet.getTags().get(0).getId())),
                     () -> assertThat("Проверка названия тэга", getPet.getStatus(), equalTo(createPet.getStatus()))
             );
 
