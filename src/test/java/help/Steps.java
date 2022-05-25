@@ -1,13 +1,12 @@
 package help;
 
-import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
-import io.restassured.specification.RequestSpecification;
 import model.Category;
 import model.Pet;
 import model.TagsItem;
 import com.github.javafaker.*;
 
+import java.util.Arrays;
 import java.util.List;
 
 import static io.restassured.RestAssured.given;
@@ -34,8 +33,8 @@ public class Steps extends Pet {
                 .category(new Category()
                         .Id(faker.hashCode())
                         .name(faker.name().fullName()))
-                .photoUrls(List.of("https://i.ytimg.com/vi/980jxJagep0/maxresdefault_live.jpg"))
-                .tags(List.of(new TagsItem()
+                .photoUrls(Arrays.asList("https://i.ytimg.com/vi/980jxJagep0/maxresdefault_live.jpg"))
+                .tags(Arrays.asList(new TagsItem()
                         .id(faker.hashCode())
                         .name(faker.name().fullName())))
                 .status("available");
@@ -80,8 +79,8 @@ public class Steps extends Pet {
                 .category(new Category()
                         .Id(faker.hashCode())
                         .name(faker.name().fullName()))
-                .photoUrls(List.of("https://i.ytimg.com/vi/980jxJagep0/maxresdefault_live.jpg"))
-                .tags(List.of(new TagsItem()
+                .photoUrls(Arrays.asList("https://i.ytimg.com/vi/980jxJagep0/maxresdefault_live.jpg"))
+                .tags(Arrays.asList(new TagsItem()
                         .id(faker.hashCode())
                         .name(faker.name().fullName())))
                 .status("available");
@@ -107,7 +106,7 @@ public class Steps extends Pet {
                 .category(new Category()
                         .Id(faker.hashCode())
                         .name(faker.name().fullName()))
-                .tags(List.of(new TagsItem()
+                .tags(Arrays.asList(new TagsItem()
                         .id(faker.hashCode())
                         .name(faker.name().fullName())))
                 .status("available");
@@ -129,7 +128,7 @@ public class Steps extends Pet {
         Faker faker = new Faker();
         Pet body = new Pet()
                 .name(faker.name().fullName())
-                .photoUrls(List.of("https://i.ytimg.com/vi/980jxJagep0/maxresdefault_live.jpg"));
+                .photoUrls(Arrays.asList("https://i.ytimg.com/vi/980jxJagep0/maxresdefault_live.jpg"));
 
         given()
                 .baseUri("https://petstore.swagger.io/v2")
@@ -152,8 +151,8 @@ public class Steps extends Pet {
                 .category(new Category()
                         .Id(faker.hashCode())
                         .name(faker.name().fullName()))
-                .photoUrls(List.of("https://i.ytimg.com/vi/980jxJagep0/maxresdefault_live.jpg"))
-                .tags(List.of(new TagsItem()
+                .photoUrls(Arrays.asList("https://i.ytimg.com/vi/980jxJagep0/maxresdefault_live.jpg"))
+                .tags(Arrays.asList(new TagsItem()
                         .id(faker.hashCode())
                         .name(faker.name().fullName())))
                 .status("available");
