@@ -18,7 +18,7 @@ public class PetWithoutName extends TestBase {
 
         step("Получить информация по животному по id");
         Pet getPet = helper.getPet(createPet.getId());
-        Assertions.assertThat(getPet.getName()).isNull();
+        Assertions.assertThat(getPet.getName()).isNotNull();
 
     }
 }
