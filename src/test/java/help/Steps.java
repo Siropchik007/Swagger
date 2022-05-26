@@ -1,26 +1,30 @@
 package help;
 
+import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
+import io.restassured.specification.RequestSpecification;
 import model.Category;
 import model.Pet;
 import model.TagsItem;
 import com.github.javafaker.*;
 
 import java.util.Arrays;
-import java.util.List;
 
 import static io.restassured.RestAssured.given;
 
 public class Steps extends Pet {
-/*
+
     private static final RequestSpecification REQ_SPEC =
             new RequestSpecBuilder()
                     .setBaseUri("https://petstore.swagger.io/v2")
-                    .setBasePath("/pet/12")
+                    .setBasePath("/pet")
                     .setContentType(ContentType.JSON)
-                    .build();*/
+                    .build();
 
 
+    public final class EndPoints{
+        public static final String pet = "/{id}";
+    }
     /*
         Метод для создания животного
     */
@@ -40,9 +44,7 @@ public class Steps extends Pet {
                 .status("available");
 
         given()
-                .baseUri("https://petstore.swagger.io/v2")
-                .basePath("/pet")
-                .contentType(ContentType.JSON)
+                .spec(REQ_SPEC)
                 .body(body)
                 .when().post()
                 .then().statusCode(200).log().all();
@@ -58,10 +60,8 @@ public class Steps extends Pet {
     public Pet getPet(int id) {
 
         Pet findPet = given().pathParam("id", id)
-                .baseUri("https://petstore.swagger.io/v2")
-                .basePath("/pet")
-                .contentType(ContentType.JSON)
-                .when().get("/{id}")
+                .spec(REQ_SPEC)
+                .when().get(EndPoints.pet)
                 .then().statusCode(200).and().log().all()
                 .extract().response().prettyPeek().as(Pet.class);
         return findPet;
@@ -85,9 +85,7 @@ public class Steps extends Pet {
                         .name(faker.name().fullName())))
                 .status("available");
         given()
-                .baseUri("https://petstore.swagger.io/v2")
-                .basePath("/pet")
-                .contentType(ContentType.JSON)
+                .spec(REQ_SPEC)
                 .body(body)
                 .when().post()
                 .then().statusCode(200).log().all();
@@ -111,9 +109,7 @@ public class Steps extends Pet {
                         .name(faker.name().fullName())))
                 .status("available");
         given()
-                .baseUri("https://petstore.swagger.io/v2")
-                .basePath("/pet")
-                .contentType(ContentType.JSON)
+                .spec(REQ_SPEC)
                 .body(body)
                 .when().post()
                 .then().statusCode(200).log().all();
@@ -131,9 +127,7 @@ public class Steps extends Pet {
                 .photoUrls(Arrays.asList("https://i.ytimg.com/vi/980jxJagep0/maxresdefault_live.jpg"));
 
         given()
-                .baseUri("https://petstore.swagger.io/v2")
-                .basePath("/pet")
-                .contentType(ContentType.JSON)
+                .spec(REQ_SPEC)
                 .body(body)
                 .when().post()
                 .then().statusCode(200).log().all();
@@ -158,9 +152,7 @@ public class Steps extends Pet {
                 .status("available");
 
         given()
-                .baseUri("https://petstore.swagger.io/v2")
-                .basePath("/pet")
-                .contentType(ContentType.JSON)
+                .spec(REQ_SPEC)
                 .body(body)
                 .when().put()
                 .then().statusCode(200).log().all();
