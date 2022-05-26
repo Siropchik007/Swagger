@@ -1,4 +1,4 @@
-package help;
+package helper;
 
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
@@ -12,7 +12,7 @@ import java.util.Arrays;
 
 import static io.restassured.RestAssured.given;
 
-public class Steps extends Pet {
+public class PetSteps extends Pet {
 
     private static final RequestSpecification REQ_SPEC =
             new RequestSpecBuilder()

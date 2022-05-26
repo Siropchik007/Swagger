@@ -1,10 +1,7 @@
 package testCases;
 
-import com.github.javafaker.Faker;
-import help.Steps;
+import helper.PetSteps;
 import model.Pet;
-import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import utils.TestBase;
 
@@ -13,7 +10,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertAll;
 
 public class UpdatePet extends TestBase {
-    Steps helper = new Steps();
+    PetSteps helper = new PetSteps();
 
     @Test
     public void updatePett(){

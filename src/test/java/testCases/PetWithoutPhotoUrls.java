@@ -1,14 +1,13 @@
 package testCases;
 
-import com.github.javafaker.Faker;
-import help.Steps;
+import helper.PetSteps;
 import model.Pet;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import utils.TestBase;
 
 public class PetWithoutPhotoUrls extends TestBase {
-    Steps helper = new Steps();
+    PetSteps helper = new PetSteps();
 
     @Test
     public void petWithoutRequiredPhoto(){

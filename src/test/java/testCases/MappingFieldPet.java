@@ -1,18 +1,17 @@
 package testCases;
 
-import help.Steps;
+import helper.PetSteps;
 import model.Pet;
 import org.junit.jupiter.api.Test;
 import utils.TestBase;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertAll;
 
 
 public class MappingFieldPet extends TestBase {
-        Steps helper = new Steps();
+        PetSteps helper = new PetSteps();
         @Test
         public void mappingFieldPet() {
 

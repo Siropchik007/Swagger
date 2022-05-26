@@ -1,6 +1,6 @@
 package testCases;
 
-import help.Steps;
+import helper.PetSteps;
 import model.Pet;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -8,7 +8,7 @@ import utils.TestBase;
 
 
 public class PetWithoutName extends TestBase {
-    Steps helper = new Steps();
+    PetSteps helper = new PetSteps();
 
     @Test
     public void petWithoutRequiredName(){
