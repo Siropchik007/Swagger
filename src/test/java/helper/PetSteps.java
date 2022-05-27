@@ -160,6 +160,34 @@ public class PetSteps extends Pet {
 
     }
 
+    /*
+        Метод для удаления питомца
+     */
+
+    public String deletePet(int id) {
+
+        String result = given().pathParam("id", id)
+                .spec(REQ_SPEC)
+                .when().delete(EndPoints.pet)
+                .then().statusCode(200).and().log().all()
+                .extract().response().prettyPeek().asString();
+        return result;
+    }
+
+    /*
+        Проверка на наличие удалённого питомца
+     */
+
+    public String getDeletedPet(int id) {
+
+        String findPet = given().pathParam("id", id)
+                .spec(REQ_SPEC)
+                .when().get(EndPoints.pet)
+                .then().statusCode(404)
+                .extract().response().prettyPeek().asString();
+        return findPet;
+    }
+
 
 }
 

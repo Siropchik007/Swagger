@@ -1,16 +1,17 @@
 package helper;
 
+import com.github.javafaker.Faker;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import model.Order;
 
-import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 
 import static io.restassured.RestAssured.given;
 
 public class OrderSteps extends Order {
+    Faker faker = new Faker();
     private static final RequestSpecification REQ_SPEC =
             new RequestSpecBuilder()
                     .setBaseUri("https://petstore.swagger.io/v2")
@@ -18,13 +19,16 @@ public class OrderSteps extends Order {
                     .setContentType(ContentType.JSON)
                     .build();
 
+    /*
+        Создание заказа
+     */
     public Order createOrder(){
         Order body = new Order()
-                .petId(1)
-                .quantity(2)
-                .id(123)
+                .petId(faker.hashCode())
+                .quantity(faker.hashCode())
+                .id(faker.hashCode())
                 .shipDate(ZonedDateTime.now())
-                .complete(true)
+                .complete(faker.random().nextBoolean())
                 .status("placed");
         given()
                 .spec(REQ_SPEC)
@@ -34,6 +38,9 @@ public class OrderSteps extends Order {
         return body;
 
     }
+    /*
+        Получение заказа
+     */
 
     public Order getOrder(int id){
         Order findOrder = given().pathParam("id", id)
@@ -42,5 +49,20 @@ public class OrderSteps extends Order {
                 .then().statusCode(200).and().log().all()
                 .extract().response().prettyPeek().as(Order.class);
         return findOrder;
+    }
+
+    /*
+        Получение информации о инвенторе магазина
+     */
+    public String getInvOrder(){
+        String rs = given()
+                .baseUri("https://petstore.swagger.io/v2")
+                .basePath("/store/inventory")
+                .contentType(ContentType.JSON)
+                .when().get()
+                .then()
+                .statusCode(200).log().all()
+                .extract().asString();
+        return rs;
     }
 }

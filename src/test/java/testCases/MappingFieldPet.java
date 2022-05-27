@@ -21,12 +21,12 @@ public class MappingFieldPet extends TestBase {
             step("Получить информация по животному по id");
             Pet getPet = helper.getPet(createPet.getId());
             assertAll(
-                    () -> assertThat("Проверка имени", getPet.getName(), equalTo(createPet.getName())),
-                    () -> assertThat("Проверка id", getPet.getId(), equalTo(createPet.getId())),
-                    () -> assertThat("Проверка id категории", getPet.getCategory().getId(), equalTo(createPet.getCategory().getId())),
-                    () -> assertThat("Проверка url фото", getPet.getPhotoUrls(), equalTo(createPet.getPhotoUrls())),
-                    () -> assertThat("Проверка id тэга", getPet.getTags().get(0).getId(), equalTo(createPet.getTags().get(0).getId())),
-                    () -> assertThat("Проверка названия тэга", getPet.getStatus(), equalTo(createPet.getStatus()))
+                    () -> assertThat("Проверка соответствия имени", getPet.getName(), equalTo(createPet.getName())),
+                    () -> assertThat("Проверка соответствия  id", getPet.getId(), equalTo(createPet.getId())),
+                    () -> assertThat("Проверка соответствия id категории", getPet.getCategory().getId(), equalTo(createPet.getCategory().getId())),
+                    () -> assertThat("Проверка соответствия url фото", getPet.getPhotoUrls(), equalTo(createPet.getPhotoUrls())),
+                    () -> assertThat("Проверка соответствия id тэга", getPet.getTags().get(0).getId(), equalTo(createPet.getTags().get(0).getId())),
+                    () -> assertThat("Проверка соответствия статуса", getPet.getStatus(), equalTo(createPet.getStatus()))
             );
 
 
