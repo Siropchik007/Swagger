@@ -10,6 +10,6 @@ public class StoreInventory extends TestBase {
     @Test
     public void getInventory(){
         step("Получение информации о инвенторе магазина");
-        String inventoryInfo = helper.getInvOrder();
+        String inventoryInfo = helper.getInventoryOrder();
     }
 }

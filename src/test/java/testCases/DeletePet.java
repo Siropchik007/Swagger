@@ -8,7 +8,7 @@ import utils.TestBase;
 public class DeletePet extends TestBase {
     PetSteps helper = new PetSteps();
     @Test
-    public void mappingFieldPet() {
+    public void deletePet() {
 
         step("Создание животного");
         Pet createPet = helper.createPet();

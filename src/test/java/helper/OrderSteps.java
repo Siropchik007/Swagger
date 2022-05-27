@@ -54,7 +54,7 @@ public class OrderSteps extends Order {
     /*
         Получение информации о инвенторе магазина
      */
-    public String getInvOrder(){
+    public String getInventoryOrder(){
         String rs = given()
                 .baseUri("https://petstore.swagger.io/v2")
                 .basePath("/store/inventory")
@@ -64,5 +64,33 @@ public class OrderSteps extends Order {
                 .statusCode(200).log().all()
                 .extract().asString();
         return rs;
+    }
+
+    /*
+        Метод для удаления заказа
+     */
+
+    public String deleteOrder(int id) {
+
+        String result = given().pathParam("id", id)
+                .spec(REQ_SPEC)
+                .when().delete(PetSteps.EndPoints.pet)
+                .then().statusCode(200).and().log().all()
+                .extract().response().prettyPeek().asString();
+        return result;
+    }
+
+    /*
+        Проверка на наличие удалённого заказа
+     */
+
+    public String getDeletedOrder(int id) {
+
+        String findOrder = given().pathParam("id", id)
+                .spec(REQ_SPEC)
+                .when().get("/{id}")
+                .then().statusCode(404)
+                .extract().response().prettyPeek().asString();
+        return findOrder;
     }
 }

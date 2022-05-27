@@ -13,9 +13,9 @@ public class UpdatePet extends TestBase {
     PetSteps helper = new PetSteps();
 
     @Test
-    public void updatePett(){
+    public void updatePet(){
 
-        step("Создание животного без ссылки на фото");
+        step("Создание животного");
         Pet createPet = helper.createPet();
 
         step("Обновление питомца");
