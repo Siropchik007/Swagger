@@ -1,4 +1,4 @@
-package testCases;
+package userTestCases;
 
 import helper.UserSteps;
 import model.User;

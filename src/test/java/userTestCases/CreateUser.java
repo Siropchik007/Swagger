@@ -1,11 +1,11 @@
-package testCases;
+package userTestCases;
 
 import helper.UserSteps;
 import model.User;
 import org.junit.jupiter.api.Test;
 import utils.TestBase;
 
-public class UserCreate  extends TestBase {
+public class CreateUser extends TestBase {
 
     UserSteps helper = new UserSteps();
 

@@ -6,6 +6,9 @@ import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import model.User;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static io.restassured.RestAssured.given;
 
 public class UserSteps {
@@ -97,6 +100,58 @@ public class UserSteps {
                 .when().put("/{username}", updatedUser.getUsername())
                 .then().statusCode(200);
         return body;
+    }
+
+    /*
+        Вход пользоватлея в систему
+     */
+
+    public User loginUser(User logUser) {
+        User body = new User()
+                .username(logUser.getUsername())
+                .password(logUser.getPassword());
+        given()
+                .spec(REQ_SPEC)
+                .body(body).log().all()
+                .when().get("/login")
+                .then().statusCode(200);
+        return body;
+    }
+
+    /*
+        Выход пользователя из сиситемы
+     */
+
+    public User logoutUser(User logoutUser) {
+        User body = new User();
+        given()
+                .spec(REQ_SPEC)
+                .body(body).log().all()
+                .when().get("/logout")
+                .then().statusCode(200);
+        return body;
+    }
+
+    public ArrayList<User> arrayUser(User arrayUser) {
+        ArrayList<User> arrayUsers= new ArrayList<>();
+        arrayUsers.add(arrayUser);
+        given()
+                .spec(REQ_SPEC)
+                .body(arrayUsers).log().all()
+                .when().post("/createWithArray")
+                .then().statusCode(200);
+        return arrayUsers;
+    }
+
+    public List<User> listUser(User listUser) {
+        List<User> listUsers= new ArrayList<>();
+        listUsers.add(listUser);
+        given()
+                .spec(REQ_SPEC)
+                .body(listUsers).log().all()
+                .when().post("/createWithList")
+                .then().statusCode(200);
+        return listUsers;
     }
 
 }
