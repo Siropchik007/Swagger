@@ -1,4 +1,4 @@
-package orderTestCases;
+package testCases.orderTestCases;
 
 import helper.OrderSteps;
 import model.Order;

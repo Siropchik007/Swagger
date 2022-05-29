@@ -1,19 +1,20 @@
-package userTestCases;
+package testCases.userTestCases;
 
 import helper.UserSteps;
 import model.User;
 import org.junit.jupiter.api.Test;
 import utils.TestBase;
 
-public class LoginUser extends TestBase {
+public class CreateUser extends TestBase {
+
     UserSteps helper = new UserSteps();
 
     @Test
-    public void loginUser(){
+    public void createTest(){
         step("Создание пользователя");
         User createUser = helper.createUser();
 
-        step("Вход пользователя");
-        User loginUser = helper.loginUser(createUser);
+        step("Получение пользователя");
+        User getUser = helper.getUser(createUser.getUsername());
     }
 }

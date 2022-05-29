@@ -1,4 +1,4 @@
-package petTestCases;
+package testCases.petTestCases;
 
 
 import helper.PetSteps;
