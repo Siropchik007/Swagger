@@ -1,4 +1,4 @@
-package testCases.orderTestCases;
+package testCases;
 
 import helper.OrderSteps;
 import org.junit.jupiter.api.Test;
