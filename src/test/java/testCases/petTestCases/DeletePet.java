@@ -2,9 +2,11 @@ package testCases.petTestCases;
 
 import helper.PetSteps;
 import model.Pet;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import utils.TestBase;
 
+@DisplayName("Удалиение питомца")
 public class DeletePet extends TestBase {
     PetSteps helper = new PetSteps();
     @Test

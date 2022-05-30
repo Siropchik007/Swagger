@@ -1,7 +1,8 @@
-package testCases;
+package testCases.orderTestCases;
 
 import helper.OrderSteps;
 import model.Order;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import utils.TestBase;
 
@@ -9,7 +10,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertAll;
 
-
+@DisplayName("Создание заказа")
 public class OrderCreate extends TestBase {
     OrderSteps helper = new OrderSteps();
 

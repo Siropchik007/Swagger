@@ -3,10 +3,11 @@ package testCases.petTestCases;
 import helper.PetSteps;
 import model.Pet;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import utils.TestBase;
 
-
+@DisplayName("Создание питомца без имени")
 public class PetWithoutName extends TestBase {
     PetSteps helper = new PetSteps();
 

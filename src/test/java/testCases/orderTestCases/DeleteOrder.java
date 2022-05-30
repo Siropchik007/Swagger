@@ -1,10 +1,12 @@
-package testCases;
+package testCases.orderTestCases;
 
 import helper.OrderSteps;
 import model.Order;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import utils.TestBase;
 
+@DisplayName("Удаление заказа")
 public class DeleteOrder extends TestBase {
     OrderSteps helper = new OrderSteps();
 

@@ -2,9 +2,10 @@ package testCases.userTestCases;
 
 import helper.UserSteps;
 import model.User;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import utils.TestBase;
-
+@DisplayName("Удаление пользователя")
 public class DeleteUser extends TestBase {
     UserSteps helper = new UserSteps();
 

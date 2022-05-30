@@ -2,26 +2,27 @@ package testCases.petTestCases;
 
 import helper.PetSteps;
 import model.Pet;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import utils.TestBase;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertAll;
-
+@DisplayName("Обновление питомца")
 public class UpdatePet extends TestBase {
     PetSteps helper = new PetSteps();
 
     @Test
     public void updatePet(){
 
-        step("Создание животного");
+        step("Создание питомца");
         Pet createPet = helper.createPet();
 
         step("Обновление питомца");
         Pet updatePet = helper.updatePet(createPet);
 
-        step("Получить информация по животному по id");
+        step("Получить информация по питомца по id");
         Pet getPet = helper.getPet(createPet.getId());
 
         assertAll(

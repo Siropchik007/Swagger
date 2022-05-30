@@ -2,11 +2,13 @@ package testCases.userTestCases;
 
 import helper.UserSteps;
 import model.User;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import utils.TestBase;
 
 import java.util.List;
 
+@DisplayName("Добавление списка пользователей")
 public class ListUser extends TestBase {
     UserSteps helper = new UserSteps();
 

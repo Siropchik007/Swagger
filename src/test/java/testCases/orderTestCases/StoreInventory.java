@@ -1,9 +1,11 @@
-package testCases;
+package testCases.orderTestCases;
 
 import helper.OrderSteps;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import utils.TestBase;
 
+@DisplayName("Получение информации о инвенторе магазина")
 public class StoreInventory extends TestBase {
     OrderSteps helper = new OrderSteps();
 

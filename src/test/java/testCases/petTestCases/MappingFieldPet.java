@@ -2,6 +2,7 @@ package testCases.petTestCases;
 
 import helper.PetSteps;
 import model.Pet;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import utils.TestBase;
 
@@ -9,16 +10,16 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertAll;
 
-
+@DisplayName("Создание питомца")
 public class MappingFieldPet extends TestBase {
         PetSteps helper = new PetSteps();
         @Test
         public void mappingFieldPet() {
 
-            step("Создание животного");
+            step("Создание питомца");
             Pet createPet = helper.createPet();
 
-            step("Получить информация по животному по id");
+            step("Получить информация по питомца по id");
             Pet getPet = helper.getPet(createPet.getId());
             assertAll(
                     () -> assertThat("Проверка соответствия имени", getPet.getName(), equalTo(createPet.getName())),

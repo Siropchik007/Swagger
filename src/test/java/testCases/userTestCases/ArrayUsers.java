@@ -2,11 +2,12 @@ package testCases.userTestCases;
 
 import helper.UserSteps;
 import model.User;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import utils.TestBase;
 
 import java.util.ArrayList;
-
+@DisplayName("Добавляение массив пользователей")
 public class ArrayUsers extends TestBase {
     UserSteps helper = new UserSteps();
 
@@ -17,7 +18,7 @@ public class ArrayUsers extends TestBase {
         step("Создание пользователя");
         User createUser2 = helper.createUser();
 
-        step("Добавляение vfccbdf пользователей");
+        step("Добавляение массив пользователей");
         ArrayList<User> addUser = helper.arrayUser(createUser);
         ArrayList<User> addUser2 = helper.arrayUser(createUser2);
     }

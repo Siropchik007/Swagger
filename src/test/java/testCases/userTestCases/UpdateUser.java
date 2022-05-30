@@ -2,6 +2,7 @@ package testCases.userTestCases;
 
 import helper.UserSteps;
 import model.User;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import utils.TestBase;
 
@@ -9,6 +10,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertAll;
 
+@DisplayName("Обновление пользователя")
 public class UpdateUser extends TestBase {
     UserSteps helper = new UserSteps();
 
