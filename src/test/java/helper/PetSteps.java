@@ -88,7 +88,7 @@ public class PetSteps extends Pet {
                 .spec(REQ_SPEC)
                 .body(body)
                 .when().post()
-                .then().statusCode(200).log().all();
+                .then().statusCode(400).log().all();
         return body;
     }
 
@@ -112,7 +112,7 @@ public class PetSteps extends Pet {
                 .spec(REQ_SPEC)
                 .body(body)
                 .when().post()
-                .then().statusCode(403).log().all();
+                .then().statusCode(400).log().all();
         return body;
     }
 
